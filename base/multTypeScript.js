@@ -611,7 +611,7 @@ function copy(src, dest) {
 }
 ;
 
-function upgrade() {
+function update() {
     var sys = require('sys');
     var exec = require('child_process').exec;
     var child;
@@ -679,8 +679,8 @@ if (process.argv[2] == 'set') {
     IO.stdout.WriteLine('');
     IO.stdout.WriteLine(' User "mtsc --version" to print the current compiler\'s version.');
     IO.stdout.WriteLine('');
-} else if (process.argv[2] == 'upgrade') {
-    upgrade();
+} else if (process.argv[2] == 'update') {
+    update();
 } else {
     require('./tsc.js');
 }
