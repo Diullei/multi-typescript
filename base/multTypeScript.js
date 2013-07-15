@@ -651,9 +651,44 @@ function update() {
     });
 }
 
+function verifyNewVersion() {
+    var sys = require('sys');
+    var exec = require('child_process').exec;
+    var child;
+    var http = require('http');
+    var newest;
+    var current;
+    var options = {
+        host: 'registry.npmjs.org',
+        port: 80,
+        path: '/multi-typescript'
+    };
+
+    var packageConfig = require('../package');
+    var version = packageConfig.version;
+
+    http.get(options, function (res) {
+        var jsond = '';
+        var body = '';
+        res.on('data', function (chunk) {
+            body += chunk;
+        });
+        res.on('end', function () {
+            jsond = JSON.parse(body);
+            if (jsond['dist-tags'].latest > version) {
+                IO.stdout.WriteLine('\33[33m\33[1m* There is a new version available. To install run:\33[0m');
+                IO.stdout.WriteLine('\33[33m\33[1m*     mtsc update\33[0m');
+            }
+        });
+    }).on('error', function (e) {
+    });
+}
+
 var file = __dirname + '/config.json';
 
 var config = JSON.parse(fs.readFileSync(file));
+
+verifyNewVersion();
 
 if (process.argv[2] == 'set') {
     if (config["versions"][process.argv[3]]) {
