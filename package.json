@@ -1,7 +1,7 @@
 {
 	"name": "multi-typescript",
 	"author": "Diullei Gomes",
-	"version": "0.1.0",
+	"version": "0.1.2",
 	"homepage": "https://github.com/Diullei/multi-typescript",
 	"licenses": [
 		{
@@ -9,7 +9,7 @@
 			"url": "https://raw.github.com/Diullei/multi-typescript/master/LICENSE.txt"
 		}
 	],
-	"description": "Load multi TypeScript versions",
+	"description": "Load multiple TypeScript versions",
 	"keywords": [
 		"TypeScript", 
 		"Microsoft", 
