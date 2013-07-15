@@ -636,7 +636,7 @@ function update() {
         res.on('end', function () {
             jsond = JSON.parse(body);
             if (jsond['dist-tags'].latest > version) {
-                child = exec("npm install multi-typescript@" + jsond['dist-tags'].latest, function (error, stdout, stderr) {
+                child = exec("npm install multi-typescript@" + jsond['dist-tags'].latest + ' -g', function (error, stdout, stderr) {
                     if (error !== null) {
                         console.log('exec error: ' + error);
                     }
