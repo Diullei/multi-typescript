@@ -15,12 +15,12 @@ Use `mtsc` command in the same way as typescript `tsc` command.
 
 * To show all __TypeScript__ versions
 
-	mtsc versions
+		mtsc versions
 
 * To change the current __TypeScript__ version:
 
-	mtsc set 0.9.0.0
+		mtsc set 0.9.0.0
 
 * Use the following command to update the multi-typescript version
 
-	mtsc update
+		mtsc update
