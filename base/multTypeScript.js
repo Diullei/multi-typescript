@@ -651,7 +651,7 @@ function update() {
     });
 }
 
-function verifyNewVersion() {
+function init(callback) {
     var sys = require('sys');
     var exec = require('child_process').exec;
     var child;
@@ -676,11 +676,14 @@ function verifyNewVersion() {
         res.on('end', function () {
             jsond = JSON.parse(body);
             if (jsond['dist-tags'].latest > version) {
-                IO.stdout.WriteLine('\33[33m\33[1m* There is a new version available. To install run:\33[0m');
-                IO.stdout.WriteLine('\33[33m\33[1m*     mtsc update\33[0m');
+                IO.stdout.WriteLine('\33[33m\33[1m* There is a new version available (' + jsond['dist-tags'].latest + '). To install run:\33[0m');
+                IO.stdout.WriteLine('\33[33m\33[1m>     mtsc update\33[0m');
             }
+
+            callback();
         });
     }).on('error', function (e) {
+        callback();
     });
 }
 
@@ -688,34 +691,34 @@ var file = __dirname + '/config.json';
 
 var config = JSON.parse(fs.readFileSync(file));
 
-verifyNewVersion();
+init(function () {
+    if (process.argv[2] == 'set') {
+        if (config["versions"][process.argv[3]]) {
+            deleteFolderRecursive(__dirname + '/../current');
 
-if (process.argv[2] == 'set') {
-    if (config["versions"][process.argv[3]]) {
-        deleteFolderRecursive(__dirname + '/../current');
+            copyDir(__dirname + '/../base', __dirname + '/../current');
 
-        copyDir(__dirname + '/../base', __dirname + '/../current');
+            copyDir(__dirname + '/' + config["versions"][process.argv[3]], __dirname + '/../current');
 
-        copyDir(__dirname + '/' + config["versions"][process.argv[3]], __dirname + '/../current');
-
+            IO.stdout.WriteLine('');
+            IO.stdout.WriteLine(' Switched to version \'' + process.argv[3] + '\'');
+            IO.stdout.WriteLine('');
+        } else {
+            IO.stdout.WriteLine('Invalid TypeScript version \'' + process.argv[3] + '\'.');
+        }
+    } else if (process.argv[2] == 'versions') {
+        IO.stdout.WriteLine('\33[33m\33[1m! develop - (unstable version)\33[0m');
+        IO.stdout.WriteLine('\33[36m\33[1m* 0.9.0.1 - (last released)\33[0m');
+        IO.stdout.WriteLine('  0.9.0.0');
+        IO.stdout.WriteLine('  0.9.0-alpha');
+        IO.stdout.WriteLine('  0.8.3.0');
+        IO.stdout.WriteLine('  0.8.2.0');
         IO.stdout.WriteLine('');
-        IO.stdout.WriteLine(' Switched to version \'' + process.argv[3] + '\'');
+        IO.stdout.WriteLine(' User "mtsc --version" to print the current compiler\'s version.');
         IO.stdout.WriteLine('');
+    } else if (process.argv[2] == 'update') {
+        update();
     } else {
-        IO.stdout.WriteLine('Invalid TypeScript version \'' + process.argv[3] + '\'.');
+        require('./tsc.js');
     }
-} else if (process.argv[2] == 'versions') {
-    IO.stdout.WriteLine('\33[33m\33[1m! develop - (unstable version)\33[0m');
-    IO.stdout.WriteLine('\33[36m\33[1m* 0.9.0.1 - (last released)\33[0m');
-    IO.stdout.WriteLine('  0.9.0.0');
-    IO.stdout.WriteLine('  0.9.0-alpha');
-    IO.stdout.WriteLine('  0.8.3.0');
-    IO.stdout.WriteLine('  0.8.2.0');
-    IO.stdout.WriteLine('');
-    IO.stdout.WriteLine(' User "mtsc --version" to print the current compiler\'s version.');
-    IO.stdout.WriteLine('');
-} else if (process.argv[2] == 'update') {
-    update();
-} else {
-    require('./tsc.js');
-}
+});
