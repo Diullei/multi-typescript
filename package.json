@@ -1,0 +1,30 @@
+{
+	"name": "multi-typescript",
+	"author": "Diullei Gomes",
+	"version": "0.1.0",
+	"homepage": "https://github.com/Diullei/multi-typescript",
+	"licenses": [
+		{
+			"type": "Apache License 2.0", 
+			"url": "https://raw.github.com/Diullei/multi-typescript/master/LICENSE.txt"
+		}
+	],
+	"description": "Load multi TypeScript versions",
+	"keywords": [
+		"TypeScript", 
+		"Microsoft", 
+		"compiler", 
+		"language", 
+		"javascript"
+	],
+	"preferGlobal" : true,
+	"bin" : { 
+		"mtsc" : "./current/mtsc" 
+	},
+	"bin" : { 
+		"mtsc" : "./current/mtsc" 
+	},
+	"engines" : { 
+		"node" : ">=0.8.0" 
+	}
+}

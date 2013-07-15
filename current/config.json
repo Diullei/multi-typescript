@@ -1,0 +1,10 @@
+{ 
+	"versions": {
+		"develop": "../develop",
+		"0.8.2.0": "../release-0.8.2",
+		"0.8.3.0": "../release-0.8.3",
+		"0.9.0.0": "../release-0.9.0",
+		"0.9.0.1": "../release-0.9.0.1",
+		"0.9.0-alpha": "../release-0.9.0-alpha"
+	}
+}
