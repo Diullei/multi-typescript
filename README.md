@@ -1,7 +1,7 @@
 multi-typescript
 ================
 
-Load multiple TypeScript versions.
+Switch between multiple versions of the TypeScript.
 
 ## Install
 
