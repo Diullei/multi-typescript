@@ -5,7 +5,7 @@
 	"homepage": "https://github.com/Diullei/multi-typescript",
 	"licenses": [
 		{
-			"type": "Apache License 2.0", 
+			"type": "MIT", 
 			"url": "https://raw.github.com/Diullei/multi-typescript/master/LICENSE.txt"
 		}
 	],
