@@ -15,9 +15,9 @@ and limitations under the License.
 
 /// <reference no-default-lib="true"/>
 
-/////////////////////////////
+////////////////
 /// ECMAScript APIs
-/////////////////////////////
+////////////////
 
 declare var NaN: number;
 declare var Infinity: number;
@@ -935,9 +935,9 @@ interface JSON {
   */
 declare var JSON: JSON;
 
-/////////////////////////////
+////////////////
 /// ECMAScript Array API (specially handled by compiler)
-/////////////////////////////
+////////////////
 
 interface Array<T> {
     toString(): string;
@@ -969,7 +969,6 @@ interface Array<T> {
 
     length: number;
 
-    [n: number]: T;
 }
 declare var Array: {
     new <T>(arrayLength: number): T[];
@@ -981,16 +980,16 @@ declare var Array: {
 }
 
 
-/////////////////////////////
+////////////////
 /// IE10 ECMAScript Extensions
-/////////////////////////////
+////////////////
 
 interface ArrayBuffer {
     byteLength: number;
 }
 declare var ArrayBuffer: {
     prototype: ArrayBuffer;
-    new (byteLength: number): ArrayBuffer;
+    new (byteLength: number);
 }
 
 interface ArrayBufferView {
@@ -1175,9 +1174,9 @@ declare var DataView: {
     new (buffer: ArrayBuffer, byteOffset?: number, length?: number): DataView;
 }
 
-/////////////////////////////
-/// IE9 DOM APIs 
-/////////////////////////////
+////////////////
+/// IE9 DOM APIs (note that 
+////////////////
 
 interface NavigatorID {
     appVersion: string;
@@ -8898,7 +8897,7 @@ interface HTMLTrackElement extends HTMLElement {
     srclang: string;
     track: TextTrack;
     label: string;
-    default: boolean;
+    defaul: boolean;
 }
 declare var HTMLTrackElement: {
     prototype: HTMLTrackElement;
@@ -9066,10 +9065,10 @@ interface ITextWriter {
 }
 
 declare var WScript : {
-    Echo(s: any): void;
+    Echo(s: any);
     StdErr: ITextWriter;
     StdOut: ITextWriter;
     Arguments: { length: number; Item(n: number): string; };
     ScriptFullName: string;
-    Quit(exitCode?: number): number;
+    Quit(exitCode?: number);
 }

@@ -3661,7 +3661,7 @@ declare module Windows {
     export module Devices {
         export module Geolocation {
             export enum PositionAccuracy {
-                default,
+                default_,
                 high,
             }
             export enum PositionStatus {
@@ -4541,38 +4541,38 @@ declare module Windows {
         export module DateTimeFormatting {
             export enum YearFormat {
                 none,
-                default,
+                default_,
                 abbreviated,
                 full,
             }
             export enum MonthFormat {
                 none,
-                default,
+                default_,
                 abbreviated,
                 full,
                 numeric,
             }
             export enum DayOfWeekFormat {
                 none,
-                default,
+                default_,
                 abbreviated,
                 full,
             }
             export enum DayFormat {
                 none,
-                default,
+                default_,
             }
             export enum HourFormat {
                 none,
-                default,
+                default_,
             }
             export enum MinuteFormat {
                 none,
-                default,
+                default_,
             }
             export enum SecondFormat {
                 none,
-                default,
+                default_,
             }
             export interface IDateTimeFormatter {
                 calendar: string;
@@ -4940,7 +4940,7 @@ declare module Windows {
                 lzwhDifferencing,
             }
             export enum JpegSubsamplingMode {
-                default,
+                default_,
                 y4Cb2Cr0,
                 y4Cb2Cr2,
                 y4Cb4Cr4,
@@ -5370,7 +5370,7 @@ declare module Windows {
                 dpiY: number;
             }
             export enum PrintMediaSize {
-                default,
+                default_,
                 notAvailable,
                 printerCustom,
                 businessCard,
@@ -5545,7 +5545,7 @@ declare module Windows {
                 roll54Inch,
             }
             export enum PrintMediaType {
-                default,
+                default_,
                 notAvailable,
                 printerCustom,
                 autoSelect,
@@ -5579,7 +5579,7 @@ declare module Windows {
                 none,
             }
             export enum PrintOrientation {
-                default,
+                default_,
                 notAvailable,
                 printerCustom,
                 portrait,
@@ -5588,7 +5588,7 @@ declare module Windows {
                 landscapeFlipped,
             }
             export enum PrintQuality {
-                default,
+                default_,
                 notAvailable,
                 printerCustom,
                 automatic,
@@ -5600,7 +5600,7 @@ declare module Windows {
                 text,
             }
             export enum PrintColorMode {
-                default,
+                default_,
                 notAvailable,
                 printerCustom,
                 color,
@@ -5608,7 +5608,7 @@ declare module Windows {
                 monochrome,
             }
             export enum PrintDuplex {
-                default,
+                default_,
                 notAvailable,
                 printerCustom,
                 oneSided,
@@ -5616,14 +5616,14 @@ declare module Windows {
                 twoSidedLongEdge,
             }
             export enum PrintCollation {
-                default,
+                default_,
                 notAvailable,
                 printerCustom,
                 collated,
                 uncollated,
             }
             export enum PrintStaple {
-                default,
+                default_,
                 notAvailable,
                 printerCustom,
                 none,
@@ -5638,7 +5638,7 @@ declare module Windows {
                 saddleStitch,
             }
             export enum PrintHolePunch {
-                default,
+                default_,
                 notAvailable,
                 printerCustom,
                 none,
@@ -5648,7 +5648,7 @@ declare module Windows {
                 bottomEdge,
             }
             export enum PrintBinding {
-                default,
+                default_,
                 notAvailable,
                 printerCustom,
                 none,
@@ -6224,7 +6224,7 @@ declare module Windows {
                 fromId(deviceInterfaceId: string): Windows.Media.Devices.CallControl;
             }
             export enum AudioDeviceRole {
-                default,
+                default_,
                 communications,
             }
             export interface IDefaultAudioDeviceChangedEventArgs {
@@ -6324,7 +6324,7 @@ declare module Windows {
             }
             export class MediaDeviceControlCapabilities implements Windows.Media.Devices.IMediaDeviceControlCapabilities {
                 autoModeSupported: boolean;
-                default: number;
+                default_: number;
                 max: number;
                 min: number;
                 step: number;
@@ -6332,7 +6332,7 @@ declare module Windows {
             }
             export interface IMediaDeviceControlCapabilities {
                 autoModeSupported: boolean;
-                default: number;
+                default_: number;
                 max: number;
                 min: number;
                 step: number;
@@ -7288,7 +7288,7 @@ declare module Windows {
                 error,
             }
             export enum BackgroundTransferCostPolicy {
-                default,
+                default_,
                 unrestrictedOnly,
                 always,
             }
@@ -10065,7 +10065,7 @@ declare module Windows {
             failIfExists,
         }
         export enum StorageDeleteOption {
-            default,
+            default_,
             permanentDelete,
         }
         export enum StorageItemTypes {
@@ -12015,7 +12015,7 @@ declare module Windows {
                 showAsync(): Windows.Foundation.IAsyncOperation<Windows.UI.Popups.IUICommand>;
             }
             export enum Placement {
-                default,
+                default_,
                 above,
                 below,
                 left,
@@ -12365,7 +12365,7 @@ declare module Windows {
                 arabic,
                 baltic,
                 vietnamese,
-                default,
+                default_,
                 symbol,
                 thai,
                 shiftJis,

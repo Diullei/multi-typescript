@@ -39054,7 +39054,10 @@ var TypeScript;
                         this.resolveAST(subModuleAST.members, false, containerDecls[i], context);
                     }
                 }
+
                 this.setUnitPath(currentPath);
+
+                this.validateVariableDeclarationGroups(containerDecl, context);
             }
 
             if (!context.isInBaseTypeResolution()) {
@@ -46021,14 +46024,10 @@ var TypeScript;
                     if (!j) {
                         firstSymbol = symbol;
                         firstSymbolType = symbolType;
-
-                        if (this.isAnyOrEquivalent(this.widenType(firstSymbolType))) {
-                            return;
-                        }
                         continue;
                     }
 
-                    if (symbolType && firstSymbolType && !this.isAnyOrEquivalent(symbolType) && !this.typesAreIdentical(symbolType, firstSymbolType)) {
+                    if (symbolType && firstSymbolType && !this.typesAreIdentical(symbolType, firstSymbolType)) {
                         context.postError(this.currentUnit.getPath(), boundDeclAST.minChar, boundDeclAST.getLength(), TypeScript.DiagnosticCode.Subsequent_variable_declarations_must_have_the_same_type_Variable_0_must_be_of_type_1_but_here_has_type_2, [symbol.getScopedName(), firstSymbolType.toString(), symbolType.toString()], enclosingDecl);
                     }
                 }
